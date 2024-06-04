@@ -13,6 +13,9 @@ MIT
 @angular/router
 MIT
 
+@ng-select/ng-select
+MIT
+
 ngf-bootstrap
 ISC
 
