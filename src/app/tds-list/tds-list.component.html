@@ -9,8 +9,20 @@
     <h1>Empty Homes Pledge</h1>
     <hr>
     <span>Search your Constituency/Candidate </span>
-    <input type="text" [(ngModel)]="searchValue" placeholder="Type  a  Constituency,  Name  or  Party"> <!--added ngModel-->
+    <!-- <input type="text" [(ngModel)]="searchValue" placeholder="Type  a  Constituency,  Name  or  Party"> added ngModel -->
     
+    <mat-form-field>
+      <mat-select [(formControl)]="searchValue" placeholder="Constituency" #singleSelect>
+        <mat-option>
+          <ngx-mat-select-search [formControl]="websiteFilterCtrl" placeholderLabel="Search" noEntriesFoundLabel="No matches found"></ngx-mat-select-search>
+        </mat-option>
+    
+        <mat-option *ngFor="let website of filteredWebsites | async" [value]="website">
+          {{website.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
     <p>If you're a candidate and want to get in touch email homespledge@uplift.ie or sign the pledge <u><a [routerLink] = "['/pledge-text']">here</a></u>.</p>
     
 
